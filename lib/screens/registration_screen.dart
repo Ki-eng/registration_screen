@@ -43,7 +43,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
-  // one builder for both password fields ──
+  // one builder for both password fields
   Widget _passwordField({required bool isConfirm}) {
     return ListenableBuilder(
       listenable: _controller,
@@ -83,7 +83,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          // ── Requirement 5: scrollable, keyboard-safe ──
+          // scrollable, keyboard-safe
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),
             child: ConstrainedBox(
@@ -94,7 +94,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // ── Requirement 1: heading & welcome ──
+                    // heading & welcome
                     const AppLogo(),
                     const SizedBox(height: 24),
                     const Text(
@@ -113,7 +113,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 32),
 
-                    // ── Requirement 1: input fields ──
+                    //  input fields
                     AppTextField(
                       controller: _controller.nameController,
                       label: 'Full Name',
@@ -145,7 +145,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     _passwordField(isConfirm: true),
                     const SizedBox(height: 16),
 
-                    // ── Requirement 3: gender selection ──
+                    // gender selection
                     ListenableBuilder(
                       listenable: _controller,
                       builder: (context, _) {
@@ -170,7 +170,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 8),
 
-                    // ── Requirement 3: Terms & Conditions ──
                     ListenableBuilder(
                       listenable: _controller,
                       builder: (context, _) {
@@ -195,7 +194,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 16),
 
-                    // ── Requirement 1 & 4: Register button ──
+                    // Register button
                     ElevatedButton(
                       onPressed: _handleRegister,
                       child: const Text('Register'),
