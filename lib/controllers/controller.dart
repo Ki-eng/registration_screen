@@ -23,27 +23,7 @@ class Controller extends ChangeNotifier {
   String? get gender => _gender;
   bool get rememberMe => _rememberMe;
 
-  void togglePassword() {
-    _obscurePassword = !_obscurePassword;
-    notifyListeners();
-  }
-
-  void toggleConfirm() {
-    _obscureConfirm = !_obscureConfirm;
-    notifyListeners();
-  }
-
-  void toggleTerms([bool? value]) {
-    _termsAccepted = value ?? !_termsAccepted;
-    notifyListeners();
-  }
-
-  void setGender(String? value) {
-    _gender = value;
-    notifyListeners();
-  }
-
-  // ── Validation (Requirement 2) ──
+  // Validate Name
   String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Full name is required';
@@ -53,6 +33,8 @@ class Controller extends ChangeNotifier {
     }
     return null;
   }
+
+  // Validate Email
 
   String? validateEmail(String? value) {
     if (value == null || value.trim().isEmpty) {
@@ -65,6 +47,8 @@ class Controller extends ChangeNotifier {
     return null;
   }
 
+  // Validate Phone Number
+
   String? validatePhone(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Phone number is required';
@@ -76,6 +60,8 @@ class Controller extends ChangeNotifier {
     return null;
   }
 
+  // Validate Password
+
   String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
@@ -86,6 +72,8 @@ class Controller extends ChangeNotifier {
     return null;
   }
 
+  // Validate Confirm Password
+
   String? validateConfirm(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please confirm your password';
@@ -95,6 +83,36 @@ class Controller extends ChangeNotifier {
     }
     return null;
   }
+
+  // Toggle Password Visibility
+
+  void togglePassword() {
+    _obscurePassword = !_obscurePassword;
+    notifyListeners();
+  }
+
+  // Toggle Confirm Password Visibility
+
+  void toggleConfirm() {
+    _obscureConfirm = !_obscureConfirm;
+    notifyListeners();
+  }
+
+  // Toggle Terms and Conditions
+
+  void toggleTerms([bool? value]) {
+    _termsAccepted = value ?? !_termsAccepted;
+    notifyListeners();
+  }
+
+  // Set Gender
+
+  void setGender(String? value) {
+    _gender = value;
+    notifyListeners();
+  }
+
+  // Toggle remember me check box
 
   void toggleRememberMe([bool? value]) {
     _rememberMe = value ?? !_rememberMe;
