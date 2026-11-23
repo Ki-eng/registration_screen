@@ -20,11 +20,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     super.dispose();
   }
 
-  // ── Requirement 4: validate everything, never proceed when invalid ──
+  // validate everything, never proceed when invalid
   void _handleRegister() {
     FocusScope.of(context).unfocus();
 
-    if (!_controller.validateForm()) return; // field errors show inline
+    // field errors show inline
+    if (!_controller.validateForm()) return;
 
     if (!_controller.termsAccepted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -42,7 +43,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
-  // ── Requirement 3: one builder for both password fields ──
+  // one builder for both password fields ──
   Widget _passwordField({required bool isConfirm}) {
     return ListenableBuilder(
       listenable: _controller,
