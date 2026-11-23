@@ -170,6 +170,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 8),
 
+                    // Terms & Conditions
                     ListenableBuilder(
                       listenable: _controller,
                       builder: (context, _) {
